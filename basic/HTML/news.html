@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 뉴스 - SKALA</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(135deg, #4b79a1, #283e51);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav {
+            text-align: center;
+            background: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            margin-bottom: 30px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: inline-flex;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #007bff;
+        }
+        section {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+        }
+        section h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #007bff;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        article {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        article:hover {
+            transform: scale(1.03);
+        }
+        article h3 {
+            color: #007bff;
+            margin-top: 0;
+        }
+        article p {
+            color: #555;
+        }
+        audio, video {
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        footer {
+            background: #283e51;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <h1>오늘의 뉴스</h1>
+    </header>
+
+    <!-- 네비게이션 -->
+    <nav>
+        <ul>
+            <li><a href="#politics">정치</a></li>
+            <li><a href="#economy">경제</a></li>
+            <li><a href="#sports">스포츠</a></li>
+        </ul>
+    </nav>
+
+    <!-- 정치 섹션 -->
+    <section id="politics">
+        <h2>정치</h2>
+        <article>
+            <h3>대통령 구속</h3>
+            <p>오늘 아침, 대통령이 부패 혐의로 구속되었습니다. 검찰은 수사 결과를 발표하며...</p>
+        </article>
+    </section>
+
+    <!-- 경제 섹션 -->
+    <section id="economy">
+        <h2>경제</h2>
+        <article>
+            <h3>증권 시장 상승세</h3>
+            <p>오늘 증권 시장은 상승세를 보였습니다. 전문가들은...</p>
+            <audio controls>
+                <source src="audio/news-economy.mp3" type="audio/mpeg">
+                지원하지 않는 브라우저입니다. 오디오를 재생하려면 최신 브라우저를 사용하세요.
+            </audio>
+        </article>
+    </section>
+
+    <!-- 스포츠 섹션 -->
+    <section id="sports">
+        <h2>스포츠</h2>
+        <article>
+            <h3>축구 경기 하이라이트</h3>
+            <p>어젯밤 열린 축구 경기에서 흥미진진한 승부가 펼쳐졌습니다...</p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000;">
+                <iframe 
+                    src="https://www.youtube.com/embed/Ut2-5vxGelM?start=74" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                </iframe>
+            </div>
+        </article>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>© 2025 SKALA 뉴스.</p>
+    </footer>
+</body>
+</html>
