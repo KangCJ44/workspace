@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화이트/다크 모드 선택</title>
+    <style>
+        /* 기본 테마 */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* 화이트 모드 */
+        body.light-mode {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        /* 다크 모드 */
+        body.dark-mode {
+            background: #121212;
+            color: #ffffff;
+        }
+
+        /* 라디오 버튼 스타일 */
+        .mode-selector {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        label {
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .content {
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="mode-selector">
+        <label>
+            <input type="radio" name="theme" value="light" checked onclick="changeTheme('light')">
+            화이트 모드
+        </label>
+        <label>
+            <input type="radio" name="theme" value="dark" onclick="changeTheme('dark')">
+            다크 모드
+        </label>
+    </div>
+
+    <div class="content">
+        <h1>테마 변경 예제</h1>
+        <p>라디오 버튼을 클릭하여 화이트 모드와 다크 모드를 전환해보세요!</p>
+    </div>
+
+    <script>
+        function changeTheme(mode) {
+            if (mode === 'light') {
+                document.body.classList.add('light-mode');
+                document.body.classList.remove('dark-mode');
+            } else if (mode === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.body.classList.remove('light-mode');
+            }
+        }
+    </script>
+</body>
+</html>

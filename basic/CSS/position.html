@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position 속성 예제</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Position 속성 예제</h1>
+    <div class="container">
+        <div class="box static">static<br>(일반 흐름)</div>
+        <div class="box relative">relative<br>(자신 기준 이동)</div>
+        <div class="box parent">
+            부모 컨테이너 (relative)
+            <div class="box absolute">absolute<br>(부모 기준 이동)</div>
+        </div>
+        <div class="box fixed">fixed</div>
+        <div class="box sticky">sticky<br>(스크롤 시 고정)</div>
+    </div>
+    <p>스크롤을 내려 <code>sticky</code>와 <code>fixed</code>의 차이를 확인해보세요!</p>
+    <div class="spacer"></div>
+    <footer>페이지 끝</footer>
+</body>
+</html>

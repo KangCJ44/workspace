@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그리드 레이아웃 반응형 예제</title>
+    <style>
+        /* 공통 스타일 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        /* Grid 레이아웃 */
+        body {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            grid-template-columns: 1fr;
+            min-height: 100vh;
+        }
+
+        /* Header 스타일 */
+        header {
+            background: #4CAF50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        header nav ul li {
+            display: inline;
+        }
+
+        /* Main 스타일 */
+        main {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        aside {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer 스타일 */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* 반응형 디자인 */
+        @media (min-width: 768px) {
+            main {
+                grid-template-columns: 300px 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>웹사이트 제목</h1>
+        <nav>
+            <ul>
+                <li><a href="#">홈</a></li>
+                <li><a href="#">소개</a></li>
+                <li><a href="#">서비스</a></li>
+                <li><a href="#">연락처</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <aside>
+            <h2>사이드바</h2>
+            <ul>
+                <li><a href="#">메뉴 1</a></li>
+                <li><a href="#">메뉴 2</a></li>
+                <li><a href="#">메뉴 3</a></li>
+            </ul>
+        </aside>
+
+        <section>
+            <h2>메인 콘텐츠</h2>
+            <p>
+                이곳은 메인 콘텐츠 영역입니다.
+                화면 크기에 따라 사이드바의 위치가 변경됩니다.
+            </p>
+            <p>
+                반응형 디자인을 위해 <strong>Grid Layout</strong>을 사용했습니다.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 웹사이트. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

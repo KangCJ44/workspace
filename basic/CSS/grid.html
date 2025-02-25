@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang=“en”>
+
+<head>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* 3열 분할 */
+            gap: 10px;
+            /* 아이템 간 간격 */
+            padding: 10px;
+            border: 2px solid #000;
+        }
+
+        .grid-item {
+            background-color: #2196f3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+    </div>
+</body>
+
+</html>

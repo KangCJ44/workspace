@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색창 예제</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .search-container {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            gap: 10px;
+            text-align: center;
+            background: #fff;
+            padding: 30px 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+        }
+
+        .search-box {
+            display: flex;
+            border: 2px solid #ccc;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            outline: none;
+            font-size: 1em;
+            border-radius: 30px 0 0 30px;
+        }
+
+        .search-box button {
+            padding: 10px 20px;
+            border: none;
+            background: #4CAF50;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 0 30px 30px 0;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: #45a049;
+        }
+
+        .search-suggestions {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .search-suggestions li {
+            padding: 10px;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-suggestions li:hover {
+            background: #f2f2f2;
+        }
+
+        .search-results {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 30px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-results h2 {
+            margin-bottom: 20px;
+        }
+
+        .search-results ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .search-results li {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .search-results li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search-container">
+        <h1>검색창</h1>
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="검색어를 입력하세요...">
+            <button id="search-button">검색</button>
+        </div>
+        <ul class="search-suggestions" id="suggestions-list">
+            <!-- 검색 목록이 여기에 동적으로 추가됩니다 -->
+        </ul>
+    </div>
+
+    <div class="search-results" id="search-results">
+        <!-- 검색 결과가 여기에 출력됩니다 -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
