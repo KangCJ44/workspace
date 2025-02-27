@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소 생성 및 추가</title>
+</head>
+
+<body>
+    <button>Click me</button>
+    <script>
+
+        let newParagraph = document.createElement('p');
+        newParagraph.textContent = 'This is a dynamically added paragraph.';
+        document.body.appendChild(newParagraph);
+        let button = document.querySelector('button');
+        // button.onclick = () => alert('Clicked!'); // onclick 메서드 호출 방식
+        button.addEventListener('click', () => alert('Clicked!')); // 이벤트 리스너 등록 방식
+        button.setAttribute('disabled', 'true'); // 버튼을 비활성화
+        console.log(button.getAttribute('disabled')); // 출력: "true"
+
+    </script>
+</body>
+
+</html>

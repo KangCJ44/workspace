@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const person = {
+            name: "홍길동",
+            age: 30,
+            job: "의적",
+            skills: ["검술", "전략", "분신"],
+            shadow: {
+                color: "검은색",
+                length: 1
+            }
+        }
+        const duplicatedPerson = {
+            ...person,
+            skills: person.skills.filter(skill => skill !== "분신"),
+        };
+        delete duplicatedPerson.shadow;
+        // duplicatedPerson.skills.pop();
+
+        console.log(person, duplicatedPerson);
+    </script>
+</body>
+
+</html>

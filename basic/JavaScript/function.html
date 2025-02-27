@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function displayInfo(name, age) {
+            console.log(name + " is " + age + " years old.");
+        }
+        displayInfo("Alice", 25); // "Alice is 25 years old." 출력
+
+        function addNumbers(...numbers) {
+            let sum = 0;
+            for (let number of numbers) {
+                sum += number;
+            }
+            return sum;
+        }
+        console.log(addNumbers(1, 2, 3)); // 6 출력
+        console.log(addNumbers(4, 5, 6, 7)); // 22 출력
+
+    </script>
+</body>
+
+</html>
