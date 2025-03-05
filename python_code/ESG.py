@@ -58,6 +58,3 @@ plt.grid()
 
 # 그래프 저장
 plt.savefig("data_visualization_with_prediction.png")
-
-# 그래프 출력
-plt.show()
