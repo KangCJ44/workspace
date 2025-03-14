@@ -1,6 +1,9 @@
-package skalajava;
-
 public class skalatest3 {
+
+    public enum LoginChannel{
+        FACEBOOK, KAKAO, APPLE, NAVER, DEFAULT
+    }
+
     public static void main(String[] args) {
         executeLogin(LoginChannel.FACEBOOK);
     }

@@ -4,11 +4,12 @@ public class AnimalSound {
     public static void main(String[] args) {
         Animal dog = new Dog();
         Animal cat = new Cat();
+        Animal cow = new Cow();
         
         dog.makeSound(); // 출력: 멍멍!
         cat.makeSound(); // 출력: 야옹!
 
-        handleAnimalSound(cat);
+        handleAnimalSound(cow);
     }
 
     static void handleAnimalSound(Animal animal){
