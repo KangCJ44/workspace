@@ -1,20 +1,20 @@
 import java.util.Scanner;
 
 public class SkalaStockMarket {
-    private PlayerRepository playerRepository = new PlayerRepository();
-    private StockRepository stockRepository = new StockRepository();
+    private final PlayerRepository playerRepository = new PlayerRepository();
+    private final StockRepository stockRepository = new StockRepository();
     private Player player = null;
 
     public void start() {
 
-        // 주식 레파지토리에서 주식 정보를 불러옴
+        //1. 주식 정보를 파일에서 읽어옴
         stockRepository.loadStockList();
 
-        // 플레이어 레파지토리에서 플레이어 정보를 불러옴
+        //2. 플레이어 정보를 파일에서 읽어옴
         playerRepository.loadPlayerList();
 
-        // 콘솔로 입력을 받을 수 있도록 스캐너 설정
-        Scanner scanner = new Scanner(System.in);
+        //3. InputStream으로부터 입력되는 데이터를 받아서 파싱하는 Scanner 객체 생성
+        Scanner scanner = new Scanner(System.in /* InputStream object return */);
 
         System.out.print("플레이어 ID를 입력하세요: ");
         String playerId = scanner.nextLine();
@@ -72,7 +72,7 @@ public class SkalaStockMarket {
     // 플레이어의 보유 주식 목록 표시
     private void displayPlayerStocks() {
         System.out.println("\n######### 플레이어 정보 #########");
-        System.out.println("- 플레이어ID : " + player.getplayerId());
+        System.out.println("- 플레이어ID : " + player.getPlayerId());
         System.out.println("- 보유금액 : " + player.getPlayerMoney());
         System.out.println("- 보유 주식 목록");
         System.out.println(player.getPlayerStocksForMenu());
