@@ -36,7 +36,9 @@ public class SkalaStockMarket {
             System.out.println("1. 보유 주식 목록");
             System.out.println("2. 주식 구매");
             System.out.println("3. 주식 판매");
+            System.out.println("4. 주식 목록");
             System.out.println("0. 프로그램 종료");
+            stockRepository.randomizeStockPrices();
 
             System.out.print("선택: ");
             try {
@@ -51,6 +53,9 @@ public class SkalaStockMarket {
                         break;
                     case 3:
                         sellStock(scanner);
+                        break;
+                    case 4:
+                        displayStockList();
                         break;
                     case 0:
                         System.out.println("프로그램을 종료합니다...Bye");

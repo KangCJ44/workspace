@@ -1,0 +1,7 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.project.sourcePaths": [
+        "backend/01.java/30.skala-stock-console/src",
+        "backend/01.java/01.hellow-world/src",
+    ]
+}

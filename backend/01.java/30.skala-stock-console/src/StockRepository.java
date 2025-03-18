@@ -1,11 +1,6 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.io.*;
+import java.util.*;
+
 
 class StockRepository {
 
@@ -14,6 +9,8 @@ class StockRepository {
 
     // 주식 정보 목록 (메모리)
     private final List<Stock> stockList = new ArrayList<>();
+
+    private final Random random = new Random();
 
     // 주식 정보를 파일에서 읽어옴
     public void loadStockList() {
@@ -96,4 +93,12 @@ class StockRepository {
         return null;
     }
 
+    public void randomizeStockPrices(){
+        for (Stock stock : stockList) {
+            int change = random.nextInt(21) - 10; // -10에서 +10 사이의 변동 값 생성
+            int newPrice = Math.max(stock.getStockPrice() + change, 1); // 최소 가격 1로 설정
+            stock.setStockPrice(newPrice);
+        }
+        System.out.println("주식 가격이 임의로 변경되었습니다.");
+    }
 }
