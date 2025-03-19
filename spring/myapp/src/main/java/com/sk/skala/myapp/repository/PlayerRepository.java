@@ -2,6 +2,9 @@ package com.sk.skala.myapp.repository;
 
 import com.sk.skala.myapp.model.Player;
 import com.sk.skala.myapp.model.StockConstants;
+
+import lombok.Getter;
+
 import com.sk.skala.myapp.model.PlayerStock;
 
 
@@ -13,7 +16,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
 
+@Component
+@Getter
 public class PlayerRepository {
 
     // Player 정보를 저장할 파일
@@ -21,6 +27,10 @@ public class PlayerRepository {
 
     // Player 정보 목록 (메모리)
     private final List<Player> playerList = new ArrayList<>();
+
+    public PlayerRepository() {
+        loadPlayerList();
+    }
 
     // Player 정보를 file에서 읽어옴
     public void loadPlayerList() {

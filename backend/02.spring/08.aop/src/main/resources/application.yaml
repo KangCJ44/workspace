@@ -6,5 +6,5 @@ logging:
   level:
     org:
       springframework:
-        web: DEBUG
-        aop: DEBUG
+        web: INFO
+        aop: INFO

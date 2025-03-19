@@ -6,6 +6,9 @@ import com.sk.skala.myapp.model.PlayerStock;
 import com.sk.skala.myapp.repository.*;
 import java.util.Scanner;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class SkalaStockMarket {
     private final PlayerRepository playerRepository = new PlayerRepository();
     private final StockRepository stockRepository = new StockRepository();

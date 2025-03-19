@@ -3,10 +3,15 @@ package com.sk.skala.myapp.repository;
 import com.sk.skala.myapp.model.Stock;
 import com.sk.skala.myapp.model.StockConstants;
 
+import lombok.Getter;
+
 import java.io.*;
 import java.util.*;
 
+import org.springframework.stereotype.Repository;
 
+@Repository
+@Getter
 public class StockRepository {
 
     // 주식 정보를 저장할 파일 (형식 - "주식명,주가")
@@ -15,6 +20,10 @@ public class StockRepository {
     // 주식 정보 목록 (메모리)
     private final List<Stock> stockList = new ArrayList<>();
 
+    public StockRepository() {
+        loadStockList();
+    }
+    
     private final Random random = new Random();
 
     // 주식 정보를 파일에서 읽어옴

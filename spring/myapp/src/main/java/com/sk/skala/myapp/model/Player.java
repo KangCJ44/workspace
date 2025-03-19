@@ -5,8 +5,11 @@ import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 public class Player {
     // 사용자 ID
@@ -20,22 +23,6 @@ public class Player {
     public Player(String id) {
         this.playerId = id;
         this.playerMoney = 10_000;
-    }
-
-    public void setPlayerId(String id) {
-        this.playerId = id;
-    }
-
-    public String getPlayerId() {
-        return this.playerId;
-    }
-
-    public int getPlayerMoney() {
-        return this.playerMoney;
-    }
-
-    public void setPlayerMoney(int money) {
-        this.playerMoney = money;
     }
 
     public List<PlayerStock> getPlayerStocks() {

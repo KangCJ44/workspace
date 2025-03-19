@@ -1,0 +1,5 @@
+TechCorp,100
+GreenEnergy,80
+HealthPlus,120
+SK C&C,150
+Samsung,170

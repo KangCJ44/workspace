@@ -1,5 +1,11 @@
 package com.sk.skala.myapp.model;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Stock {
     String stockName;
     int stockPrice;
@@ -12,23 +18,7 @@ public class Stock {
         this.stockPrice = price;
     }
 
-    public String getStockName() {
-        return stockName;
-    }
-
-    public int getStockPrice() {
-        return stockPrice;
-    }
-
-    public void setStockPrice(int price) {
-        this.stockPrice = price;
-    }
-
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(stockName);
-        sb.append(":");
-        sb.append(stockPrice);
-        return sb.toString();
+        return stockName + ":" + stockPrice;
     }
 }
