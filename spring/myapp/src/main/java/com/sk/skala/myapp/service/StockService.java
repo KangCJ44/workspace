@@ -14,13 +14,18 @@ public class StockService {
         this.stockRepository = stockRepository;
     }
 
+    // ✅ 모든 주식 목록 조회
     public List<Stock> getAllStocks() {
-        return stockRepository.getStockList();
+        return stockRepository.findAll();  // JPA 방식으로 변경
     }
 
+    // ✅ 주식 생성 로직 수정
     public Stock createStock(Stock stock) {
-        stockRepository.getStockList().add(stock);
-        stockRepository.saveStockList();
-        return stock;
+        try {
+            return stockRepository.save(stock); // JPA의 save() 사용
+        } catch (Exception e) {
+            System.out.println("ERROR: 주식 생성 중 문제가 발생했습니다. " + e.getMessage());
+            throw new RuntimeException("주식 생성 실패", e);
+        }
     }
 }

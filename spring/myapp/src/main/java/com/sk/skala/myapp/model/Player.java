@@ -3,92 +3,85 @@ package com.sk.skala.myapp.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sk.skala.myapp.tools.JsonTool;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+@Entity
+@Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class Player {
-    // 사용자 ID
+
+    @Id
     private String playerId;
-    private int playerMoney;
-    private List<PlayerStock> playerStocks = new ArrayList<>();
 
-    public Player() {
-    }
+    private double playerMoney;
 
-    public Player(String id) {
+    @JsonIgnore
+    private String playerStocks;
+
+    public Player(String id, double money) {
         this.playerId = id;
-        this.playerMoney = 10_000;
+        this.playerMoney = money;
     }
 
-    public List<PlayerStock> getPlayerStocks() {
-        return this.playerStocks;
+    // 플레이어의 주식 목록을 반환
+    public List<PlayerStock> getPlayerStockList() {
+        if (this.playerStocks != null) {
+            return JsonTool.toList(playerStocks, PlayerStock.class);
+        } else {
+            return new ArrayList<>();
+        }
     }
 
-    public void setPlayerStocks(List<PlayerStock> stocks) {
-        this.playerStocks = stocks;
+    // 플레이어의 주식 목록을 설정
+    public void setPlayerStockList(List<PlayerStock> list) {
+        this.playerStocks = JsonTool.toString(list);
     }
 
-    public void addStock(PlayerStock stock) {
-        boolean stockExists = false;
+    // 주식 매수 (주식 목록에 추가)
+    public void buyStock(int quantity, Stock stock) {
+        List<PlayerStock> playerStockList = getPlayerStockList();
 
-        for (PlayerStock existingStock : playerStocks) {
-            if (existingStock.getStockName().equals(stock.getStockName())) {
-                existingStock.setStockPrice(stock.getStockPrice());
-                existingStock.setStockQuantity(existingStock.getStockQuantity() + stock.getStockQuantity());
-                stockExists = true;
-                break;
+        // 해당 주식이 이미 있다면 수량을 증가
+        for (PlayerStock playerStock : playerStockList) {
+            if (playerStock.getStock().getStockName().equals(stock.getStockName())) {
+                playerStock.setQuantity(playerStock.getQuantity() + quantity);
+                setPlayerStockList(playerStockList);
+                return;
             }
         }
 
-        if (!stockExists) {
-            playerStocks.add(stock);
-        }
+        // 주식 목록에 없다면 새로 추가
+        playerStockList.add(new PlayerStock(stock, quantity));
+        setPlayerStockList(playerStockList);
     }
 
-    public void updatePlayerStock(PlayerStock stock) {
-        for (PlayerStock existingStock : playerStocks) {
-            if (existingStock.getStockName().equals(stock.getStockName())) {
-                existingStock.setStockPrice(stock.getStockPrice());
-                existingStock.setStockQuantity(existingStock.getStockQuantity());
-                if (existingStock.getStockQuantity() == 0) {
-                    playerStocks.remove(existingStock);
+    // 주식 매도 (주식 목록에서 제거)
+    public void sellStock(int quantity, Stock stock) {
+        List<PlayerStock> playerStockList = getPlayerStockList();
+
+        // 해당 주식이 있는지 확인
+        for (PlayerStock playerStock : playerStockList) {
+            if (playerStock.getStock().getStockName().equals(stock.getStockName())) {
+                if (playerStock.getQuantity() >= quantity) {
+                    playerStock.setQuantity(playerStock.getQuantity() - quantity);
+                    if (playerStock.getQuantity() == 0) {
+                        playerStockList.remove(playerStock);  // 주식 수량이 0이면 목록에서 삭제
+                    }
+                    setPlayerStockList(playerStockList);
+                    return;
+                } else {
+                    throw new IllegalArgumentException("주식 수량이 부족합니다.");
                 }
-                break;
             }
         }
-    }
-
-    public PlayerStock findStock(int index) {
-        if (index >= 0 && index < playerStocks.size()) {
-            return playerStocks.get(index);
-        }
-        return null;
-    }
-
-    public String getPlayerStocksForFile() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < playerStocks.size(); i++) {
-            if (i > 0) {
-                sb.append("|");
-            }
-            sb.append(playerStocks.get(i));
-        }
-        return sb.toString();
-    }
-
-    public String getPlayerStocksForMenu() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < playerStocks.size(); i++) {
-            sb.append(i + 1);
-            sb.append(". ");
-            sb.append(playerStocks.get(i).toString());
-            sb.append(System.lineSeparator());
-        }
-        return sb.toString();
+        throw new IllegalArgumentException("해당 주식이 없습니다.");
     }
 }

@@ -98,6 +98,20 @@
         },
         {
             "type": "java",
+            "name": "11.swagger",
+            "request": "launch",
+            "mainClass": "com.sk.skala.jpasample.SwaggerApplication",
+            "cwd": "${workspaceFolder}/backend/02.spring/11.swagger"
+        },
+        {
+            "type": "java",
+            "name": "12.actuator",
+            "request": "launch",
+            "mainClass": "com.sk.skala.jpasample.ActuatorApplication",
+            "cwd": "${workspaceFolder}/backend/02.spring/12.actuator"
+        },
+        {
+            "type": "java",
             "name": "SkalaClass",
             "request": "launch",
             "mainClass": "SkalaClass",
