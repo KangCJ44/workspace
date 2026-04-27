@@ -6,3 +6,5 @@ while True:  # 무한 루프 (반복 실행)
         break  # while 반복문 종료
     
     print("입력한 문장은 : ", user_input)  # 입력한 문장 출력
+
+    #git local branch test
